@@ -1,6 +1,6 @@
 #importing sys module for command line arguments and note functions from note.py
 import sys
-from note import add_note, delete_note, view_note, notes, view_all_notes
+from db import add_note, delete_note, view_note, view_all_notes
 
 #command line interface for note application
 if len(sys.argv) < 2:
@@ -34,4 +34,8 @@ if command == "view":
 if command == "view_all":
     all_notes = view_all_notes()
     for note in all_notes:
-        print(note)
+        print(f"ID: {note[0]}")
+        print(f"Title: {note[1]}")
+        print(f"Content: {note[2]}")
+        print("------------------")
+ 
