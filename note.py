@@ -11,9 +11,9 @@ class Note:
 
 #empty list to store notes 
 notes = []
-
 #function to add notes 
-def add_note(id, title, content):
+def add_note(title, content):
+    id = len(notes) + 1
     new_note = Note(id, title, content)
     notes.append(new_note)
     return new_note
