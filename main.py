@@ -16,10 +16,14 @@ command = sys.argv[1]
 
 #command line for adding new note
 if subcommand == "add":
-    title = sys.argv[3]
-    content = sys.argv[4]
-    note = add_note(title, content)
-    print(f"Note added: {note}")
+    if len(sys.argv) < 5:
+        print("Title or content missing. Use 'notes --help' for usage information.")
+        sys.exit(1)
+    else: 
+        title = sys.argv[3]
+        content = sys.argv[4] 
+        note = add_note(title, content)
+        print(f"Note added: {note}")
     
 #command line for deleting note by id
 elif subcommand == "delete":
@@ -28,7 +32,7 @@ elif subcommand == "delete":
     print(result)
 
 #command line for viewing note by id
-elif subcommand == "view":
+elif subcommand == "show":
     id = int(sys.argv[3])
     note = view_note(id)
     if note:
@@ -37,7 +41,7 @@ elif subcommand == "view":
         print(f"Note with ID {id} not found.")
 
 #command line for viewing all notes
-elif subcommand == "view_all":
+elif subcommand == "list":
     all_notes = view_all_notes()
     for note in all_notes:
         print(f"ID: {note[0]}")
@@ -49,6 +53,5 @@ elif subcommand == "--help":
     print("Usage:")
     print("notes add <title> <content> - Add a new note")
     print("notes delete <id> - Delete a note by ID")
-    print("notes view <id> - View a note by ID")
-    print("notes view_all - View all notes")
- 
+    print("notes show <id> - Show a note by ID")
+    print("notes list - List all notes")
