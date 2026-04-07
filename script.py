@@ -1,5 +1,6 @@
 from db import add_note, delete_note, view_note, view_all_notes
 
+#note manager menu for user interaction
 def menu():
     print("\n===== NOTE MANAGER =====")
     print("1. Add note")
@@ -8,6 +9,7 @@ def menu():
     print("4. Delete note")
     print("5. Exit")
 
+#main function to run the note manager application
 def main():
     while True:
         menu()
